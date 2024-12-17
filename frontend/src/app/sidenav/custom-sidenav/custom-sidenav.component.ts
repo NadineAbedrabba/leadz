@@ -17,6 +17,8 @@ export class CustomSidenavComponent {
 sidNavCollapsed=signal(false) ;
 @Input()  set collapsed(val : boolean) {
   this.sidNavCollapsed.set(val);
+  this.sideNavChanged();  // Déclenche la fonction lors du changement de 'collapsed'
+
 } ;
 
   menuItems= signal<MenuItemType[]>( [
@@ -41,7 +43,19 @@ sidNavCollapsed=signal(false) ;
       route:'auth',
     }
   ] );
+  imgSize = computed( () => this.sidNavCollapsed() ? '55' : '130') ;
 
-  imgSize = computed( () => this.sidNavCollapsed() ? '0.28' : '0.75') ;
+   //imgsrc = computed(() => this.sidNavCollapsed() ? 'assets/virgule.png' : 'assets/logo.png');
+  logoSize = computed(() => this.sidNavCollapsed() ? '40' : '160');
+
+  imgSrc: string = 'assets/logo.png';
+
+  sideNavChanged() {
+    const delay = this.sidNavCollapsed() ?  492 : 50;  // 600ms si 'collapsed', sinon 300ms
+
+    setTimeout(() => {
+      this.imgSrc = this.sidNavCollapsed() ? 'assets/icone.png' : 'assets/logo1.png';
+    }, delay);
+  }
 
 }

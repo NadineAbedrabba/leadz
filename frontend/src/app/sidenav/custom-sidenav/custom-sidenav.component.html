@@ -1,8 +1,15 @@
-    <img   src="assets/hey2.png"   [style.transform]="'scale(' + imgSize() + ')'"  [class.img-collapsed]="sidNavCollapsed()"/>
-    <div class="header-text" [class.hide-header-text]="sidNavCollapsed()">
-          <p>Nom Prénom</p>
+<div class="sidenav-header">
+    <img class="logo"   [width]="logoSize()" height="'auto'"  [src]="imgSrc"  >
 
-    </div>
+    <img [width]="imgSize()" [height]="imgSize()"  src="assets/hey2.png" >
+<div class="header-text" [class.hide-header-text]="sidNavCollapsed()">
+<p>nom Prénom</p>
+
+
+</div>
+
+
+</div>
 
 <mat-nav-list>
     <a mat-list-item 
@@ -24,6 +31,15 @@
             [ngStyle]="{ color: rla.isActive ? '#E35A54' : '#7598B1' }">
         {{ item.label }}
       </span>
+
+
+
     </a>
+    
+
+    
+    
   </mat-nav-list>
-  
+ 
+
+
