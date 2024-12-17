@@ -1,0 +1,19 @@
+
+<mat-sidenav-container >
+
+
+    <mat-sidenav class="bg-sidenav" opened mode="side" [style.width]="sidenavWidth()">
+
+        
+    <button mat-icon-button (click)="collapsed.set(!collapsed())"   class="menu-icon" >
+        <mat-icon>menu</mat-icon>
+    </button>
+
+        <app-custom-sidenav [collapsed]="collapsed()" />
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
