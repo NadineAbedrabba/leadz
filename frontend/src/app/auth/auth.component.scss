@@ -1,22 +1,33 @@
-.gradient-custom-2 {
-    /* fallback for old browsers */
-    background: #fccb90;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-    }
-    
-    @media (min-width: 768px) {
-    .gradient-form {
-    height: 100vh !important;
-    }
-    }
-    @media (min-width: 769px) {
-    .gradient-custom-2 {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
-    }
-    }
+.round   {
+    border-radius: 16px 0px 0px 16px;
+}
+.responsive-text {
+    font-size: 17vw; /* Taille du texte basée sur la largeur de la fenêtre (15% de la largeur de la fenêtre) */
+    z-index: 1;
+    text-align: center;
+    font-family: 'Luckiest Guy', sans-serif;
+    letter-spacing: 3.5vw; /* Espacement entre les lettres basé sur la largeur de la fenêtre */
+
+    white-space: nowrap; /* Empêcher le texte de se couper sur plusieurs lignes */
+padding-top: 14vh;
+
+pointer-events: none; /* Rend le texte non cliquable */
+color: var(--primary1-color);
+opacity: 0.6;
+text-shadow: 4px 10px 10px rgba(0, 0, 0, 0.3); /* Horizontal, Vertical, Blur, Shadow color */
+
+}
+
+
+.no-spacing {
+    letter-spacing: 0 !important; /* Remove spacing for the "N" */
+    color: var(--primary1-color);
+    opacity: 1;
+
+  }
+
+  .container {
+    margin-top: -30px;
+  }
+ 
+  

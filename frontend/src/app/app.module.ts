@@ -10,10 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomSidenavComponent } from "./sidenav/custom-sidenav/custom-sidenav.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { routing } from './app.routing';
+import { LoginComponent } from './auth/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms'; // Importer les formulaires réactifs
+
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, DashboardComponent ],
-  imports: [BrowserModule, AppRoutingModule, DocModule, BrowserAnimationsModule, NavbarComponent, CustomSidenavComponent ,routing],
+  declarations: [AppComponent, AuthComponent, DashboardComponent, LoginComponent ],
+  imports: [BrowserModule, AppRoutingModule, DocModule, BrowserAnimationsModule, NavbarComponent, CustomSidenavComponent ,routing ,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
