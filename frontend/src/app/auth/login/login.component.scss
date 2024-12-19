@@ -2,55 +2,44 @@
   --primary2-color: #6f90a5;
 }
 
-
-
-
 .login-card {
   background: #F6F6F6;
   border-radius: 25px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10% 12% 10% 12%;
   width: 21vw;
-  height: auto;
   max-width: 700px;
-  max-height: auto;
   transition: all 0.3s ease;
   box-shadow: -1px 2px 15px rgba(0, 0, 0, 0.18);
-  
-  /* Centrer tout le contenu de la carte */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center; /* Centrer le texte */
- gap: -100px;
+  text-align: center;
 }
 
-/* Titre */
 .title {
   font-size: 1.32rem;
   font-weight: bold;
   font-family: 'Luckiest Guy', sans-serif;
-  letter-spacing: 2px; /* Espacement entre les lettres basé sur la largeur de la fenêtre */
+  letter-spacing: 2px;
   color: #6f90a5;
   text-transform: uppercase;
+  margin-bottom: -8%;
 }
 
-/* Ligne sous le titre */
 .title::after {
   content: "";
   display: block;
   width: 60px;
   height: 2px;
   background-color: var(--primary2-color);
-  margin: 8px auto; /* Centrer la ligne sous le titre */
-
-  margin-bottom: -15px ;
+  margin: 8px auto;
 }
 
 /* Champs d'entrée avec labels flottants */
 .input-container {
   position: relative;
-  margin: 33px 0;
+  margin: 17% 0;
 }
 
 .input-container input {
@@ -72,17 +61,19 @@
   transition: 0.3s ease all;
   pointer-events: none;
   font-family: "Roboto", sans-serif;
-  font-weight: 500 ;
-
+  /* Message d'erreur */
+    font-weight: 500;
 }
 
+
+
+/* Lorsque le champ est focus ou non vide (avec la directive not-empty) */
 .input-container input:focus~label,
-.input-container input:valid~label {
+.input-container input.not-empty~label {
   top: -15px;
   font-size: 0.875rem;
   color: #5e7a8c;
   font-family: "Roboto", sans-serif;
-
 }
 
 .input-container .underline {
@@ -95,13 +86,35 @@
   transition: 0.3s ease;
 }
 
-.input-container input:focus~.underline {
+.input-container input:focus~.underline,
+.input-container input.not-empty~.underline {
   width: 100%;
+
+
 }
 
-/* Bouton */
+
+
+
+/* Champs invalides : couleur rouge et positionnement */
+.input-container input.ng-invalid.ng-touched~label {
+  color: #d80000;
+}
+
+.input-container input.ng-invalid.ng-dirty~.underline {
+  width: 100%;
+  background: #d80000;
+}
+
+
+
+/* Erreur de validation sur un champ */
+.input-container input.ng-invalid.ng-touched~label {
+  color: #d80000;
+}
+
 .btn {
-  background-color: #80acc7 ;
+  background-color: #80acc7;
   border: none;
   border-radius: 20px;
   padding: 1.05vh 0;
@@ -109,7 +122,6 @@
   font-size: 1.2rem;
   color: white;
   cursor: pointer;
-  margin-top: 5px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -117,24 +129,14 @@
   background-color: #4a6b7c;
 }
 
-/* Style d'erreur */
-.error {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-/* Champ invalide */
-.input-container input.invalid~.underline {
-  background: red;
-}
-
-input.invalid:focus~label {
-  color: red;
-}
-
-/* Bouton désactivé */
-.btn:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
+.error-message {
+  color: #d80000;
+  /* Rouge pour l'erreur */
+  font-size: 0.875rem;
+  margin-top: 6px;
+  margin-bottom: -10%;
+  width: 100%;
+  text-align: left;
+  /* Aligner à gauche */
+}   
+/* Option pour un petit ajustement si nécessaire */

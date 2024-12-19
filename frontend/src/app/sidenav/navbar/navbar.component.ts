@@ -18,8 +18,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatSidenavModule,
     CustomSidenavComponent,
-    RouterModule
-] , 
+    RouterModule] , 
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
