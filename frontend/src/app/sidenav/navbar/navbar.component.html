@@ -5,7 +5,7 @@
     <mat-sidenav class="bg-sidenav" opened mode="side" [style.width]="sidenavWidth()">
 
         
-    <button mat-icon-button (click)="collapsed.set(!collapsed())"   class="menu-icon" >
+    <button mat-icon-button (click)="collapsed.set(!collapsed())"  [disabled]="!isLoggedIn()" class="menu-icon" >
         <mat-icon>menu</mat-icon>
     </button>
 

@@ -3,7 +3,7 @@ import { MenuItemType } from '../types/menu-item-type';
 import{MatListModule} from '@angular/material/list'
 import { CommonModule } from '@angular/common';
 import{ MatIconModule } from '@angular/material/icon'
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -14,6 +14,10 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, MatListModule,MatIconModule,RouterModule]
 })
 export class CustomSidenavComponent {
+
+
+  constructor(private router: Router) {}
+
 sidNavCollapsed=signal(false) ;
 @Input()  set collapsed(val : boolean) {
   this.sidNavCollapsed.set(val);
@@ -58,4 +62,11 @@ sidNavCollapsed=signal(false) ;
     }, delay);
   }
 
+  logout(): void {
+    // Supprimer le jeton d'authentification du localStorage
+    localStorage.removeItem('access_token');
+
+    // Rediriger l'utilisateur vers la page de connexion
+    this.router.navigate(['/auth']);
+  }
 }

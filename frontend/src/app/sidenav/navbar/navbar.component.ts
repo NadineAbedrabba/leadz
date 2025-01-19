@@ -7,7 +7,7 @@ import {MatButtonModule  } from '@angular/material/button' ;
 import { MatIconModule } from '@angular/material/icon' ;
 import { MatSidenavModule } from '@angular/material/sidenav' ;
 import { CustomSidenavComponent } from '../custom-sidenav/custom-sidenav.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -25,4 +25,21 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent {
   collapsed=signal(false);
   sidenavWidth = computed( ()=> this.collapsed()? '73px' : '250px') ;
+
+  isLoggedIn = signal(false);
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.checkLoginStatus(); // Vérifier l'état de la connexion au démarrage
+  }
+
+  // Fonction pour vérifier si l'utilisateur est connecté
+  checkLoginStatus(): void {
+    const token = localStorage.getItem('access_token');
+    this.isLoggedIn.set(!!token); // Si un jeton existe, l'utilisateur est connecté
+    if (!this.isLoggedIn()) {
+      this.collapsed.set(true); // Si non connecté, la sidebar est repliée
+    }
+  }  
 }

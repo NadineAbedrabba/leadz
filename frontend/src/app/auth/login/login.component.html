@@ -1,6 +1,7 @@
 <div class="login-card">
   <h2 class="title">Se connecter</h2>
-  <form #loginFormulaire="ngForm">
+  
+  <form #loginFormulaire="ngForm" (ngSubmit)="onSubmit(loginFormulaire)">
     <!-- Champ Nom -->
     <div class="input-container">
       <input type="text" 
@@ -11,7 +12,7 @@
              appNotEmpty
              #name="ngModel" />
       <label for="name">Nom</label>
-      <span class="underline" *ngIf=" !(name.invalid && (name.dirty || name.touched))" ></span>
+      <span class="underline" *ngIf="!(name.invalid && (name.dirty || name.touched))"></span>
       <!-- Message d'erreur -->
       <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
         <div *ngIf="name.errors?.['required']">Le nom est requis.</div>
@@ -30,7 +31,7 @@
              appNotEmpty 
              #email="ngModel" />
       <label for="email">Email</label>
-      <span class="underline" *ngIf=" !(email.invalid && (email.dirty || email.touched))"></span>
+      <span class="underline" *ngIf="!(email.invalid && (email.dirty || email.touched))"></span>
       <!-- Message d'erreur -->
       <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
         <div *ngIf="email.errors?.['required']">L'email est requis.</div>
@@ -50,7 +51,7 @@
              appNotEmpty 
              #password="ngModel" />
       <label for="password">Mot de passe</label>
-      <span class="underline" *ngIf=" !(password.invalid && (password.dirty || password.touched))" ></span>
+      <span class="underline" *ngIf="!(password.invalid && (password.dirty || password.touched))"></span>
       <!-- Message d'erreur -->
       <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
         <div *ngIf="password.errors?.['required']">Le mot de passe est requis.</div>

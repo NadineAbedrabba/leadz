@@ -19,7 +19,8 @@
        routerLinkActive="selected-menu-item" 
        #rla="routerLinkActive" 
        [activated]="rla.isActive" 
-       [ngClass]="{ 'logout': isLast }">
+       [ngClass]="{ 'logout': isLast }"
+       (click)="isLast ? logout() : null">
       
       <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" 
                 matListItemIcon 
