@@ -16,10 +16,11 @@ import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/services/auth.service';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, DashboardComponent, LoginComponent, NotEmptyDirective ],
-  imports: [BrowserModule, AppRoutingModule, DocModule, BrowserAnimationsModule, NavbarComponent, CustomSidenavComponent ,routing ,ReactiveFormsModule ,FormsModule , HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, DocModule, BrowserAnimationsModule, NavbarComponent, CustomSidenavComponent ,routing ,ReactiveFormsModule ,FormsModule , HttpClientModule,NgApexchartsModule],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent],
 })
