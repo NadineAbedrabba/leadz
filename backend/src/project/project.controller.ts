@@ -21,7 +21,7 @@ export class ProjetController {
     return this.projetService.getProjetById(id);
   }
 
-  @Get('contact/:contactId')
+  @Get('client/:contactId')
   getProjectsByContactId(@Param('contactId') contactId: number) {
     return this.projetService.getProjectsByContactId(contactId);
   }
