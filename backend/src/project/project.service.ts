@@ -38,7 +38,7 @@ export class ProjetService {
       }
 
       // Si vous souhaitez également récupérer le client associé au contact, vous pouvez l'ajouter ici
-      client = await this.clientRepo.findOne({ where: { id: contact.clientId } });
+      client = await this.clientRepo.findOne({ where: { id: contact.id } });
     }
 
     // Créer le projet et associer le contact
@@ -84,7 +84,7 @@ export class ProjetService {
   }
 
   // Méthode pour récupérer les projets par clientId
-  async getProjectsByClientId(contactId: number) {
+  async getProjectsByContactId(contactId: number) {
     return this.projetRepo.find({ 
       where: { contact: { id: contactId } },
       relations: ['contact'],
