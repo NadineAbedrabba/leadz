@@ -14,7 +14,7 @@ import { Document } from './document/document.entity/document.entity';
 import { CycleModule } from './cycle/cycle.module';
 import { DocumentModule } from './document/document.module';
 import { DocumentService } from './document/document.service';
-import { DocumentRepository } from './document/document.repository';
+
 
 
 @Module({
@@ -29,11 +29,11 @@ import { DocumentRepository } from './document/document.repository';
       entities: [Contact, Prospect, Client, Project, Document], // entités à utiliser avec TypeORM
       synchronize: true, // ATTENTION : Ne pas utiliser en production
     }),
-    DocumentModule,
     ContactModule,
     ProspectModule,
     ClientModule,
     ProjectModule,
+    DocumentModule,
     CycleModule,
     
   ],

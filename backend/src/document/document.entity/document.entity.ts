@@ -19,8 +19,6 @@ export class Document {
     @Column()
     typeDocument: string;
   
-    @Column()
-    contactId: number;
   
     @ManyToOne(() => Prospect, (prospect) => prospect.document, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'prospectId' })  // Spécifie la colonne qui contient la clé étrangère

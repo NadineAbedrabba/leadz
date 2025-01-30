@@ -1,13 +1,18 @@
-import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, Post, UploadedFile, UseInterceptors, Body, Param, Get } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { DocumentService } from './document.service';  // Le service qui gère les documents
+import { DocumentService } from './document.service';  
 import { diskStorage } from 'multer';
 
 @Controller('document')
 export class DocumentController {
   constructor(private readonly documentService: DocumentService) {}
-
-  @Post('upload')
+  
+   // Test route to check if the controller is working
+   @Get('test')
+   testRoute() {
+     return { message: 'DocumentController is working!' };
+   }
+  @Post('upload/:prospectId')
   @UseInterceptors(FileInterceptor('file', {
     storage: diskStorage({
       destination: './uploads',  // Répertoire de stockage des fichiers
@@ -17,14 +22,31 @@ export class DocumentController {
       },
     }),
   }))
-  async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    // Vous pouvez ici sauvegarder les informations du document dans la base de données
-    const savedDocument = await this.documentService.saveDocument(file);
+  async uploadFile(
+    @UploadedFile() file: Express.Multer.File,
+    @Param('prospectId') prospectId: number,
+    @Body() body: { projet: string; status: string; typeDocument: string }
+  ) {
+    try{
+       // Appel du service avec les paramètres dynamiques
+    const savedDocument = await this.documentService.saveDocument(
+      file, 
+      prospectId, 
+      body.projet, 
+      body.status, 
+      body.typeDocument
+    );
 
     return {
       message: 'File uploaded successfully',
-      document: savedDocument, // Return the saved document metadata
+      document: savedDocument, // Retourne les métadonnées du document enregistré
     };
+    } catch (error) {
+      return {
+        message: 'File upload failed',
+        error: error.message,
+      };
+    }
+   
   }
 }
-
