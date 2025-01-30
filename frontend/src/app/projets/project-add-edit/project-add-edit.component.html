@@ -1,0 +1,42 @@
+<div class="header-container">
+    <h2>Formulaire Projet</h2>
+</div>
+<form [formGroup]="ProjectForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nom Projet</mat-label>
+                <input matInput type="text" formControlName="nomProjet">
+                <mat-error *ngIf="ProjectForm.get('nomProjet')?.hasError('required')">Le nom est requis</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Date de décrochement</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateCreation">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Statut du projet</mat-label>
+                <mat-select formControlName="statutProjet">
+                  <mat-option *ngFor="let statut of statutProjet" [value]="statut">{{ statut }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="ProjectForm.get('statutProjet')?.hasError('required')">Le statut est requis</mat-error>
+              </mat-form-field>
+        </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button type="button" [mat-dialog-close]="false" style="margin-left:120px">Cancel</button>
+        <button color="primary" type="submit" class="confirm-button">Enregistrer</button>
+    </div>
+    </div>
+</form>
+
+
+
+

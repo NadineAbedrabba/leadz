@@ -1,0 +1,348 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "projets": [
+    {
+      "id": "b149",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "74c2",
+      "prospect_id": null
+    },
+    {
+      "id": "d5cd",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "2863",
+      "prospect_id": null
+    },
+    {
+      "id": "202d",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "713a",
+      "prospect_id": null
+    },
+    {
+      "id": "5494",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "3d47",
+      "prospect_id": null
+    },
+    {
+      "id": "f167",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "f604",
+      "prospect_id": null
+    },
+    {
+      "id": "2aaf",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "6e19",
+      "prospect_id": null
+    },
+    {
+      "id": "c567",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "6add",
+      "prospect_id": null
+    },
+    {
+      "id": "f64b",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "7275",
+      "prospect_id": null
+    },
+    {
+      "id": "64cb",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "94d5",
+      "prospect_id": null
+    },
+    {
+      "id": "6467",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "211b",
+      "prospect_id": null
+    },
+    {
+      "id": "6292",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "ca25",
+      "prospect_id": null
+    },
+    {
+      "id": "4b02",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "4ada",
+      "prospect_id": null
+    },
+    {
+      "id": "39aa",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "4880",
+      "prospect_id": null
+    },
+    {
+      "id": "0aa4",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "a76a",
+      "prospect_id": null
+    },
+    {
+      "id": "609c",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "d49f",
+      "prospect_id": null
+    },
+    {
+      "id": "d535",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "b404",
+      "prospect_id": null
+    },
+    {
+      "id": "a687",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "ca9b",
+      "prospect_id": null
+    },
+    {
+      "id": "f0e4",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "2c5b",
+      "prospect_id": null
+    },
+    {
+      "id": "3328",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "952e",
+      "prospect_id": null
+    },
+    {
+      "id": "a2c9",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "408a",
+      "prospect_id": null
+    },
+    {
+      "id": "cf4c",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "5440",
+      "prospect_id": null
+    },
+    {
+      "id": "c44b",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "fb0f",
+      "prospect_id": null
+    },
+    {
+      "id": "3066",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "251a",
+      "prospect_id": null
+    },
+    {
+      "id": "fd5d",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "4f9f",
+      "prospect_id": null
+    },
+    {
+      "id": "9c16",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "d788",
+      "prospect_id": null
+    },
+    {
+      "id": "8ebe",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "fb01",
+      "prospect_id": null
+    },
+    {
+      "id": "b2d8",
+      "nom_projet": "",
+      "description": "",
+      "client_id": "527f",
+      "prospect_id": null
+    }
+  ],
+  "clients": [
+    {
+      "id": "f604",
+      "prenom": "mohamed",
+      "nom": "askri",
+      "email": "mohamed@gmail.com",
+      "identifiant": 12365476,
+      "type": "physique",
+      "num": "56487932",
+      "type_c": "Client",
+      "adresse": "daed",
+      "pays": "tunisie",
+      "etat": "",
+      "dateDernierInteraction": "",
+      "detailsDernierInteraction": "",
+      "statut": "Client",
+      "nb_projet": 1,
+      "nom_projet": "",
+      "description": "",
+      "dateCreationProjet": ""
+    },
+    {
+      "prenom": "test test",
+      "nom": "testousa",
+      "email": "",
+      "identifiant": "",
+      "type": "",
+      "num": "",
+      "type_c": "Client",
+      "adresse": "",
+      "pays": "",
+      "etat": "",
+      "dateDernierInteraction": "",
+      "detailsDernierInteraction": "",
+      "statut": "Client",
+      "nb_projet": 1,
+      "nom_projet": "",
+      "description": "",
+      "dateCreationProjet": "",
+      "id": "a76a"
+    },
+    {
+      "id": "d788",
+      "prenom": "test test",
+      "nom": "testoussa",
+      "email": "",
+      "identifiant": "",
+      "type": "",
+      "num": "",
+      "type_c": "Client",
+      "adresse": "",
+      "pays": "",
+      "etat": "",
+      "dateDernierInteraction": "",
+      "detailsDernierInteraction": "",
+      "statut": "Client",
+      "nb_projet": 1,
+      "nom_projet": "",
+      "description": "",
+      "dateCreationProjet": ""
+    }
+  ],
+  "prospects": [
+    {
+      "prenom": "mohamed",
+      "nom": "askri",
+      "email": "mohamed@gmail.com",
+      "identifiant": 12365476,
+      "type": "physique",
+      "num": "56487932",
+      "type_c": "Prospect",
+      "adresse": "daed",
+      "pays": "tunisie",
+      "etat": "Non intéressé",
+      "dateDernierInteraction": "",
+      "detailsDernierInteraction": "",
+      "statut": "Client",
+      "nb_projet": 1,
+      "nom_projet": "",
+      "description": "",
+      "dateCreationProjet": "",
+      "id": "accf"
+    }
+  ],
+  "contacts": [
+    {
+      "prenom": "mohamed",
+      "nom": "askri",
+      "email": "mohamed@gmail.com",
+      "identifiant": 12365478,
+      "type": "physique",
+      "num": "56487932",
+      "type_c": "Contact",
+      "adresse": "daed",
+      "pays": "tunisie",
+      "etat": "",
+      "dateDernierInteraction": "",
+      "detailsDernierInteraction": "",
+      "statut": "Client",
+      "nb_projet": 1,
+      "nom_projet": "",
+      "description": "",
+      "dateCreationProjet": "",
+      "id": "d248"
+    },
+    {
+      "id": "42ca",
+      "prenom": "amine ",
+      "nom": "raouafi",
+      "email": "amine@gmail.com",
+      "identifiant": 12369854,
+      "type": "physique",
+      "num": "78965324",
+      "type_c": "Contact",
+      "adresse": "tunis",
+      "pays": "Tunisie"
+    },
+    {
+      "id": "4689",
+      "prenom": "ye raby",
+      "nom": "",
+      "email": "",
+      "identifiant": "",
+      "type": "",
+      "num": "",
+      "type_c": "Contact",
+      "adresse": "",
+      "pays": "",
+      "etat": "",
+      "dateDerniereInteraction": "",
+      "detailsDerniereInteraction": "",
+      "statut": "Client",
+      "nbProjets": 1,
+      "nomProjet": "",
+      "description": "",
+      "dateCreationProjet": ""
+    }
+  ]
+}

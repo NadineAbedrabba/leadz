@@ -1,0 +1,18 @@
+<div class="header-container">
+  <h2>Details projet</h2>
+</div>
+
+<mat-dialog-content class="content custom-dialog">
+  <ng-container *ngIf="displayedData">
+    <!-- Informations générales -->
+    <div class="details-container">
+      <p><strong>Nom projet:</strong> {{ displayedData.nomProjet }}</p>
+      <p><strong>Description:</strong> {{ displayedData.description }}</p>
+      <p><strong>Statut projet:</strong> {{ displayedData.statutProjet }}</p>
+      <p><strong>Date de décrochement:</strong> {{ displayedData.dateCreation | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Nom du contact:</strong> {{ contactName }}</p>
+    </div>
+  </ng-container>
+</mat-dialog-content>
+
+

@@ -1,0 +1,79 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E35A54;
+  height: 120px;
+  color: #F9F9F9;
+}
+
+h2 {
+  margin: 0;
+  margin-left: 175px !important;
+  margin-top: 15px !important;
+}
+
+
+
+.form-container {
+  width: 565px; /* Ajustez la largeur selon vos besoins */
+  background-color: #F6F6F6;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom:18px;/* Réduit l'espace entre les lignes */
+}
+
+mat-form-field {
+  width: 100%;
+  border-color: #E35A54 !important;
+}
+
+.action {
+  padding: 0px 25px 20px;
+  button {
+    flex: 1;
+  }
+}
+
+.confirm-button {
+  background-color: #E35A54;
+  border: none;
+  height: 38px;
+  width: 95px;
+  color: #F9F9F9;
+  border-radius: 8px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.confirm-button:hover {
+  background-color: #cf524b; /* Couleur en mode hover */
+}
+
+.mat-form-field {
+  margin-bottom: 8px !important; /* Réduit l'espace sous chaque champ */
+}
+
+mat-radio-group, mat-select {
+  margin-bottom: 8px !important; /* Réduit l'espace sous les groupes de radio et select */
+}
+
+/* Ajustement spécifique pour certaines lignes */
+.row.mat-radio-group {
+  margin-bottom: 8px !important; /* Réduit l'espace sous les groupes de boutons radio */
+}
+
+mat-radio-button {
+  margin-bottom: 0 !important;
+}
+
+.mat-datepicker-toggle, .mat-select {
+  margin-bottom: 8px !important; /* Réduit l'espace sous les icônes et selects */
+}
+
+.mat-form-field[appearance="outline"] {
+  margin-bottom: 0 !important; /* S'assure qu'il n'y a pas d'espacement supplémentaire */
+}
