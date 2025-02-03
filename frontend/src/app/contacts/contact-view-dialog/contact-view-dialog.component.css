@@ -1,0 +1,89 @@
+.one-column {
+  display: flex;
+  flex-direction: column; /* Affiche les éléments en colonne */
+  align-items: center; /* Centre les éléments horizontalement */
+  justify-content: center; /* Centre les éléments verticalement (optionnel) */
+  gap: 10px; /* Espacement entre les lignes */
+  margin-top: 20px; /* Ajoute de l'espace en haut */
+}
+
+.one-column p {
+  margin: 0; /* Supprime les marges par défaut */
+  line-height: 1.5; /* Améliore l'espacement des lignes */
+  font-size: 14px; /* Taille du texte */
+  text-align: center; /* Centre le texte à l'intérieur de chaque ligne */
+}
+
+
+
+.row {
+  display: flex;
+  gap: 90px;
+}
+
+.content {
+  margin-top: 30px;
+  font-size: medium !important;
+  color: #858585 !important;
+}
+
+.mat-dialog-close {
+  color: #F9F9F9;
+  background-color: aqua !important;
+}
+
+.action {
+  padding: 0px 25px 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E35A54;
+  height: 110px;
+  color: #F9F9F9;
+}
+.header-container h2{
+  margin-left: 134px;
+}
+
+.custom-dialog {
+  width: 350px; /* Ajustez cette valeur à la largeur désirée */
+  max-width: 500px; /* Empêche le conteneur de dépasser cette largeur */
+  margin: auto; /* Centre le dialogue sur l'écran */
+  margin-left: 110px;
+  max-height:500px
+}
+
+.mat-dialog-container {
+  max-width: none !important; /* Permet de désactiver la limite par défaut de Angular Material */
+  width: 500px !important; /* Largeur fixe pour le pop-up */
+}
+
+.mdc-dialog__actions {
+  display: flex; /* Active le mode flexbox */
+  flex-wrap: nowrap; /* Empêche les boutons de passer à la ligne */
+  justify-content: center; /* Centre les boutons horizontalement */
+  align-items: center; /* Centre les boutons verticalement */
+  gap: 10px !important; /* Espace entre les boutons */
+}
+
+
+
+.confirm-button {
+  background-color: #E35A54;
+  border: none;
+  height: 38px;
+  width: 85px; /* Réduit la largeur des boutons */
+  min-width: 85px; /* Largeur minimale pour éviter que le bouton ne devienne trop petit */
+  color: #F9F9F9;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center; /* Centre le texte à l'intérieur */
+}
+
+
+
+
+

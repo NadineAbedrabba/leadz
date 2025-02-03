@@ -1,0 +1,70 @@
+.carte {
+  border: solid 3px #96B1C4;
+  margin: 20px;
+  border-radius: 20px !important;
+  padding: 10px;
+
+}
+
+.carte-contenu {}
+
+.bouton {
+  background-color: #96B1C4 !important;
+  border: solid 2px #96B1C4 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-top {
+  width: 100%;
+  /* Occupe toute la largeur de la carte */
+  height: 200px;
+  /* Hauteur fixe */
+  object-fit: cover;
+  /* Adapte l'image tout en respectant les proportions */
+  object-position: center;
+  /* Centre l'image */
+}
+
+.main {
+  margin-top: 30px;
+  margin-left: 120px;
+}
+
+.modal-body .card {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.modal-body .card:hover {
+  transform: scale(1.02);
+}
+
+.fermer {
+  background-color: #E35A54;
+  color: white;
+  border: 1px solid #E35A54
+}
+
+.modal-content {
+  color: #E35A54;
+}
+
+.doc {
+  border: #96B1C4 1px solid;
+}
+
+.button.btn-close {
+  color: #E35A54 !important;
+}
+
+nav {
+  background-color: #cfe0eb !important;
+}
+
+.form-control {
+  border: #96B1C4 3px solid !important;
+  border-radius: 20px !important;
+  padding: 10px;
+}

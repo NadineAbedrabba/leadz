@@ -1,5 +1,3 @@
-// src/prospect/prospect.module.ts
-
 import { Module } from '@nestjs/common';
 import { ProspectController } from './prospect.controller';
 import { ProspectService } from './prospect.service';
@@ -11,7 +9,6 @@ import { ContactModule } from 'src/contact/contact.module';
   imports: [TypeOrmModule.forFeature([Prospect]), ContactModule],
   controllers: [ProspectController],
   providers: [ProspectService],
-  exports: [ProspectService, TypeOrmModule.forFeature([Prospect])] // Export ProspectService and Prospect repository
+  exports: [ProspectService, TypeOrmModule.forFeature([Prospect])] // Export ProspectService and repository
 })
 export class ProspectModule {}
-

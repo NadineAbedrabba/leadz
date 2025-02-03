@@ -1,3 +1,4 @@
+
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -13,9 +14,6 @@ import { Project } from './project/project.entity/project.entity';
 import { Document } from './document/document.entity/document.entity';
 import { CycleModule } from './cycle/cycle.module';
 import { DocumentModule } from './document/document.module';
-import { DocumentService } from './document/document.service';
-
-
 
 @Module({
   imports: [
@@ -28,6 +26,7 @@ import { DocumentService } from './document/document.service';
       database: 'leadz', // nom de la base de données
       entities: [Contact, Prospect, Client, Project, Document], // entités à utiliser avec TypeORM
       synchronize: true, // ATTENTION : Ne pas utiliser en production
+      
     }),
     ContactModule,
     ProspectModule,
@@ -35,7 +34,6 @@ import { DocumentService } from './document/document.service';
     ProjectModule,
     DocumentModule,
     CycleModule,
-    
   ],
   controllers: [AppController],
   providers: [AppService],
