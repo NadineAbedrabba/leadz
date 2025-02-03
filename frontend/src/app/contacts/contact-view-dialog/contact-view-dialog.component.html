@@ -1,0 +1,71 @@
+<div class="header-container">
+  <h2>
+    {{
+      data.typeContact === 'prospect' 
+        ? 'Details Prospect' 
+        : data.typeContact === 'client' 
+          ? 'Details Client' 
+          : 'Details Contact'
+    }}
+  </h2>
+</div>
+<mat-dialog-content class="content custom-dialog">
+  <ng-container *ngIf="displayedData">
+    <!-- Informations générales -->
+    <div class="one-columns">
+      <p><strong>Prénom:</strong> {{ displayedData.prenom }}</p>
+      <p><strong>Nom:</strong> {{ displayedData.nom }}</p>
+      <p><strong>Email:</strong> {{ displayedData.email }}</p>
+      <p><strong>Identifiant:</strong> {{ displayedData.identifiant }}</p>
+      <p><strong>Type:</strong> {{ displayedData.type }}</p>
+      <p><strong>Numéro:</strong> {{ displayedData.numero }}</p>
+      <p><strong>Type Contact:</strong> {{ displayedData.typeContact }}</p>
+      <p><strong>Adresse:</strong> {{ displayedData.adresse }}</p>
+      <p><strong>Pays:</strong> {{ displayedData.pays }}</p>
+    </div>
+
+    <!-- Section pour les prospects -->
+    <ng-container *ngIf="displayedData.etat">
+      <div class="one-columns">
+        <p><strong>État:</strong> {{ displayedData.etat }}</p>
+        <p><strong>Date de la dernière interaction:</strong> {{ displayedData.dateDerniereInteraction | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Détails de la dernière interaction:</strong> {{ displayedData.detailsDerniereInteraction }}</p>
+      </div>
+    </ng-container>
+
+    <!-- Section pour les clients -->
+    <ng-container *ngIf="displayedData.statut">
+      <div class="one-columns">
+        <p><strong>Statut:</strong> {{ displayedData.statut }}</p>
+        <p><strong>Date de la dernière interaction:</strong> {{ displayedData.dateDerniereInteraction | date:'dd/MM/yyyy'}}</p>
+        <p><strong>Détails de la dernière interaction:</strong> {{ displayedData.detailsDerniereInteraction }}</p>
+        <p><strong>Nombre de projets:</strong> {{ displayedData.nbProjets }}</p>
+      </div>
+    </ng-container>
+  </ng-container>
+</mat-dialog-content>
+
+<div mat-dialog-actions>
+
+  
+  <!-- Afficher le bouton "Voir Projets" uniquement pour les prospects en négociation ou les clients -->
+  <div class="mdc-dialog__actions">
+    <button 
+      *ngIf="(displayedData.typeContact === 'prospect' && displayedData.etat === 'En négociation') || displayedData.typeContact === 'client'"
+      (click)="navigateToProjects()" 
+      class="confirm-button"
+    >
+      Voir Projets
+    </button>
+  
+    <button 
+    *ngIf="displayedData.typeContact !== 'contact' && (displayedData.typeContact !== 'prospect' || (displayedData.etat === 'Intéressé' || displayedData.etat === 'En négociation'))"
+
+
+  class="confirm-button"
+>
+  Voir cycle prospection
+</button>
+
+  </div>
+</div>
