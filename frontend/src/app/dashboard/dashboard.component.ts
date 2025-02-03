@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApexChart, ApexXAxis, ApexDataLabels, ApexStroke, ApexTooltip, ApexLegend, ApexPlotOptions, ApexResponsive, ApexNonAxisChartSeries, ApexTitleSubtitle, ChartType } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,115 +7,112 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  salesData = {
-    netSales: '$38,456.00',
-    allSales: '$8',
-  };
-
-  // Données pour la section Visitors
-  visitorsData = {
-    newSales: '38,456',
-    allSales: '$8',
-  };
-
-  // Données pour la section Traffic Source
-  trafficSources = ['Google', 'Social', 'Direct'];
-
-  // Données pour la section Customers
-  customersData = {
-    today: '1,256',
-    allSales: '$8',
-  };
-
-  // Données pour la section Buyers Profile
-  buyersProfile = [
-    { name: 'Male', value: 55 },
-    { name: 'Female', value: 35 },
-    { name: 'Others', value: 10 },
-  ];
-
-  // Données pour la section Most Sales Locations
-  mostSalesLocations = '76,345 Commercial real estate';
-
-  // Données pour la section New Customers
-  newCustomers = ['Reesea Emma', 'Brasilia'];
-
-  // Données pour la section Sales Locations
-  salesLocations = ['Basilia', 'California', 'Paris', 'Bengaluru'];
-
-  // Données pour la section Latvites Handler
-  latvitesHandler = 'Ireland';
-
-  // Message pour la section Description Plan
-  descriptionPlan = 'Your subscription plan will expire soon please upgrade!';
-
-  // Configuration pour le graphique en barres (Sales)
-  public barChartOptions: any = {
+  // Configuration du graphique des ventes (Sales)
+  salesData: {
+    chart: ApexChart;
+    series: { name: string; data: number[] }[];
+    xaxis: ApexXAxis;
+    stroke: ApexStroke;
+    dataLabels: ApexDataLabels;
+    title: ApexTitleSubtitle;
+  } = {
     chart: {
-      type: 'bar',
-      height: 350,
+      type: 'bar' as ChartType,
+      height: 200
     },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: '55%',
-        endingShape: 'rounded',
-      },
-    },
-    dataLabels: {
-      enabled: false,
+    series: [
+      {
+        name: 'Ventes',
+        data: [15000, 32000, 45000, 30000, 50000, 42000, 60000]
+      }
+    ],
+    xaxis: {
+      categories: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']
     },
     stroke: {
-      show: true,
-      width: 2,
-      colors: ['transparent'],
+      width: 2
     },
-    xaxis: {
-      categories: ['Basilia', 'California', 'Paris', 'Bengaluru'],
+    dataLabels: {
+      enabled: false
     },
-    yaxis: {
-      title: {
-        text: 'Sales (USD)',
-      },
-    },
-    fill: {
-      opacity: 1,
-    },
-    tooltip: {
-      y: {
-        formatter: (val: number) => `$${val}`,
-      },
-    },
+    title: {
+      text: "Ventes de la semaine",
+      align: "center"
+    }
   };
 
-  public barChartSeries: any[] = [
-    {
-      name: 'Sales',
-      data: [5000, 3000, 2000, 4000],
-    },
-  ];
-
-  // Configuration pour le graphique circulaire (Buyers Profile)
-  public pieChartOptions: any = {
+  // Configuration du graphique des visiteurs (Visitors)
+  visitorsData: {
+    chart: ApexChart;
+    series: { name: string; data: number[] }[];
+    xaxis: ApexXAxis;
+    stroke: ApexStroke;
+    tooltip: ApexTooltip;
+    title: ApexTitleSubtitle;
+  } = {
     chart: {
-      type: 'pie',
-      width: 380,
+      type: 'line' as ChartType,
+      height: 200
     },
-    labels: ['Male', 'Female', 'Others'],
+    series: [
+      {
+        name: 'Nouveaux visiteurs',
+        data: [4000, 8000, 12000, 15000, 10000, 13000, 16000]
+      },
+      {
+        name: 'Visiteurs récurrents',
+        data: [3000, 5000, 8000, 10000, 7000, 9000, 12000]
+      }
+    ],
+    xaxis: {
+      categories: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    tooltip: {
+      enabled: true
+    },
+    title: {
+      text: "Visiteurs cette semaine",
+      align: "center"
+    }
+  };
+
+  // Configuration du graphique du profil des acheteurs (Buyers Profile)
+  profileData: {
+    chart: ApexChart;
+    series: ApexNonAxisChartSeries;
+    labels: string[];
+    legend: ApexLegend;
+    responsive: ApexResponsive[];
+    title: ApexTitleSubtitle;
+  } = {
+    chart: {
+      type: 'pie' as ChartType,
+      height: 200
+    },
+    series: [50.8, 35.7, 13.5],  // Pourcentage Male, Female, Others
+    labels: ['Homme', 'Femme', 'Autres'],
+    legend: {
+      position: 'bottom'
+    },
     responsive: [
       {
         breakpoint: 480,
         options: {
           chart: {
-            width: 200,
+            width: 300
           },
           legend: {
-            position: 'bottom',
-          },
-        },
-      },
+            position: 'bottom'
+          }
+        }
+      }
     ],
+    title: {
+      text: "Profil des acheteurs",
+      align: "center"
+    }
   };
-
-  public pieChartSeries: number[] = [55, 35, 10];
 }

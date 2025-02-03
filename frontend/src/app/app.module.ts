@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DocModule } from './doc/doc.module';
 import { NavbarComponent } from './sidenav/navbar/navbar.component';
@@ -20,7 +19,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, DashboardComponent, LoginComponent, NotEmptyDirective ],
-  imports: [BrowserModule, AppRoutingModule, DocModule, BrowserAnimationsModule, NavbarComponent, CustomSidenavComponent ,routing ,ReactiveFormsModule ,FormsModule , HttpClientModule,NgApexchartsModule],
+  imports: [BrowserModule, DocModule, BrowserAnimationsModule, NavbarComponent, CustomSidenavComponent ,routing ,ReactiveFormsModule ,FormsModule , HttpClientModule,NgApexchartsModule],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent],
 })
