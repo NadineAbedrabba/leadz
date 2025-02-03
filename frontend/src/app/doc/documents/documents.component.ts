@@ -84,15 +84,31 @@ export class DocumentsComponent {
     doc.natureDocument === natureDocument && doc.projet === nomProjet);
 
     if (document) {
-      const fileContent = document.contenu;
+       const documentNom = document.documentNom;
+    const typeDocument = document.typeDocument;
+    const contenu = document.contenu;
 
+    if (typeDocument === 'application/pdf') {
+      // Si le contenu est un PDF encodé en base64, vous pouvez l'afficher ainsi :
       const newWindow = window.open('', '_blank');
       if (newWindow) {
-        newWindow.document.write('<pre>' + fileContent + '</pre>');
+        const pdfWindow = newWindow.document.createElement('embed');
+        pdfWindow.src = 'data:application/pdf;base64,' + contenu;
+        pdfWindow.type = 'application/pdf';
+        pdfWindow.style.width = '100%';
+        pdfWindow.style.height = '100%';
+        newWindow.document.body.appendChild(pdfWindow);
       }
     } else {
-      console.log('Aucun document trouvé pour cette nature');
+      // Pour les autres types de documents comme les fichiers texte
+      const newWindow = window.open('', '_blank');
+      if (newWindow) {
+        newWindow.document.write('<pre>' + contenu + '</pre>');
+      }
     }
+  } else {
+    console.log('Aucun document trouvé pour cette nature');
+  }
   }
 deleteProjet(id: number): void {
     this.docsService.deleteProjet(id).subscribe(
