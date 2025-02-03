@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewProjectsComponent } from './contacts/view-projects/view-projects.component';
 
 const routes: Routes = [
-  { path: 'view-projects/:id', component: ViewProjectsComponent },];
+ ];
 
 @NgModule({
   declarations: [AppComponent],
