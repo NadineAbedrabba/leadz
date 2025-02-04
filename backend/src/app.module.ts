@@ -11,6 +11,13 @@ import { ContactModule } from './contact/contact.module';
 import { ProspectModule } from './prospect/prospect.module';
 import { ClientModule } from './client/client.module';
 import { ProjectModule } from './project/project.module';
+import { StepModule } from './step/step.module';
+import { DocumentModule } from './document/document.module';
+import { CycleModule } from './cycle/cycle.module';
+import { CardModule } from './card/card.module';
+import { Document } from './document/document.entity/document.entity';
+import { Step } from './step/entities/step.entity';
+import { Card } from './card/entities/card.entity';
 
 @Module({
   imports: [
@@ -28,7 +35,7 @@ import { ProjectModule } from './project/project.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
-        entities: [UserEntity,Contact, Prospect, Client, Project],
+        entities: [UserEntity,Contact, Prospect, Client, Project, Document,Step,Card],
         synchronize: true, 
       }),
       inject: [ConfigService],
@@ -38,6 +45,11 @@ import { ProjectModule } from './project/project.module';
     ProspectModule,
     ClientModule,
     ProjectModule,
+    StepModule,
+    DocumentModule,
+    CycleModule,
+    CardModule,
+
   ],
 })
 export class AppModule {}

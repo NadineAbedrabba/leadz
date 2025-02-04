@@ -18,9 +18,12 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ContactModule } from './contacts/contacts.module';
 import { ProjetsModule } from './projets/projets.module';
+import { CycleComponent } from './cycle/cycle.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, DashboardComponent, LoginComponent, NotEmptyDirective ],
+  declarations: [AppComponent, AuthComponent, DashboardComponent, LoginComponent, NotEmptyDirective,    CycleComponent,    CardComponent,
+  ],
   imports: [BrowserModule, DocModule, BrowserAnimationsModule, NavbarComponent, CustomSidenavComponent ,routing ,ReactiveFormsModule ,FormsModule , HttpClientModule,NgApexchartsModule,ContactModule,ProjetsModule],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent],

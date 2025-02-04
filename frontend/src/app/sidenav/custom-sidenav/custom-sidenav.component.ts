@@ -36,11 +36,25 @@ sidNavCollapsed=signal(false) ;
       label : 'Documents',
       route:'documents',
     },
+   
+    
+    {
+      icon: 'visibility',
+      label : 'Projets',
+      route:'projets',
+    },
+    {
+      icon: 'timeline',
+      label : 'Cycles',
+      route:'cycles',
+    },
+
     {
       icon: 'dashboard',
       label : 'Dashboard',
       route:'dashboard',
     },
+    
     {
       icon: 'logout',
       label : 'Se déconnecter',

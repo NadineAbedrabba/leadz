@@ -6,8 +6,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ContactModule } from 'src/contact/contact.module';
 
 @Module({
-  imports:[TypeOrmModule.forFeature([Prospect]), ContactModule],
+  imports: [TypeOrmModule.forFeature([Prospect]), ContactModule],
   controllers: [ProspectController],
-  providers: [ProspectService]
+  providers: [ProspectService],
+  exports: [ProspectService, TypeOrmModule.forFeature([Prospect])] // Export ProspectService and repository
 })
 export class ProspectModule {}

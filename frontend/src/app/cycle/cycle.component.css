@@ -1,0 +1,312 @@
+
+.square-card {
+    position: relative;
+    width: 100%; 
+    padding-top: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  
+  .square-card .card-header,
+  .square-card .card-body,
+  .square-card .card-footer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .square-card .card-header {
+    top: 0;
+  }
+  
+  .square-card .card-body {
+    top: 20%; 
+    bottom: 20%;
+  }
+  
+  .square-card .card-footer {
+    bottom: 0;
+  }
+  
+ 
+  
+  
+  
+  
+  
+  
+ 
+  /* Conteneur des labels */
+ .progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem; /* Espacement entre les labels et la barre */
+  font-size: 0.9rem;
+  font-weight: bold;
+  color:#121212; /* Couleur noire pour le texte */
+}
+
+.card.dropped {
+  border: 2px solid red;
+  opacity: 0.7;
+}
+
+.card.dropped .card-header {
+  background-color: #ffcccc;
+}
+/* Typographies */ @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@400;700&display=swap');
+body { font-family: 'Roboto', sans-serif; background-color: #E35A54 !important;} 
+.card-header { font-family: 'Luckiest Guy', cursive; } 
+.card-text, .modal-title { font-family: 'Roboto', sans-serif; } 
+.card { margin-bottom: 20px; /* Ajoute de l'espace entre les cartes */ }      
+.progress-bar { background-color: #96B1C4; } 
+.btn-success { background-color: #FFC04C; border-color: #FFC04C; }
+.btn-danger { background-color: #E35A54; border-color: #E35A54; }
+.btn-outline-primary, .btn-outline-secondary { color: #96B1C4; border-color: #96B1C4; }
+.btn-outline-secondary:hover { background-color: #E35A54 ; border-color: #E35A54 ; color:#FFFFFF; }
+.btn-outline-primary:hover { background-color: #E35A54 ; border-color: #E35A54 ; color:#FFFFFF; }
+.card-header {background-color: #E35A54;}
+
+
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+  padding: 20px;
+}
+
+/* En-tête de la modale */
+.modal-header {
+  border-bottom: none;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.btn-close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #888;
+  transition: color 0.2s ease;
+}
+
+.btn-close:hover {
+  color: #555;
+}
+
+/* Corps de la modale */
+.modal-body {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Liste des étapes */
+.mt-3 {
+  margin-top: 20px;
+}
+
+.mt-3 div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Augmente l'espacement vertical entre les étapes */
+  gap: 15px; /* Augmente l'espacement entre la case à cocher et le texte/bouton */
+}
+
+/* Style des cases à cocher */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 10px; 
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  color: white;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Cases désactivées */
+input[type="checkbox"]:disabled {
+  border-color: #bbb;
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+/* Labels des étapes */
+label {
+  font-size: 1rem;
+  color: #333;
+  margin-left: 10px;
+  transition: color 0.2s ease;
+}
+
+label:hover {
+  color: #4caf50;
+}
+
+/* Effet de hover sur les div des étapes */
+.mt-3 div:hover {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 5px;
+  transition: all 0.3s ease;
+}
+.mt-3 div button {
+  margin-left: auto; /* Aligne les boutons à droite si besoin */
+}
+
+
+
+
+.card {
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+
+.card-header {
+  background-color: #E35A54;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.card-body {
+  flex-grow: 1;
+  padding: 20px;
+  font-size: 1rem;
+  color: #555;
+}
+
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+.card-text {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+
+.progress {
+  height: 20px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+
+.card-footer {
+  background-color: #f8f9fa;
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* d'effet au survol des cartes */
+.card-footer:hover {
+  background-color: #f1f1f1;
+  color: #555;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* progression animée */
+.progress-bar-animated {
+  animation: progressBar 2s infinite linear;
+}
+
+@keyframes progressBar {
+  0% {
+    background-color: #007bff;
+  }
+  50% {
+    background-color: #28a745;
+  }
+  100% {
+    background-color: #007bff;
+  }
+}
+
+/* Personnalisation en fonction de la couleur dynamique */
+.bg-primary {
+  background-color: #007bff !important;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+}
+
+.bg-info {
+  background-color: #17a2b8 !important;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+/* Ajout de marges et d'espaces autour des cartes */
+.col-md-4.mb-4 {
+  margin-bottom: 20px;
+}

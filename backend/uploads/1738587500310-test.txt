@@ -1,0 +1,6 @@
+mimi
+Vérifier que le fichier est bien envoyé dans la requête : Parfois, si la requête HTTP n'envoie pas correctement le fichier, le buffer peut être undefined. Vérifie que le formulaire ou la requête POST envoie bien un fichier en pièce jointe sous le bon champ (file).
+
+Tester avec un autre fichier : Il pourrait aussi être utile de tester avec un autre fichier (par exemple, un fichier texte plus gros) pour voir si le problème persiste avec d'autres fichiers.
+
+Code avec memoryStorage pour Multer :

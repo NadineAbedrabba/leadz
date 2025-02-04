@@ -5,7 +5,7 @@ import { AuthComponent } from "./auth/auth.component";
 import { AuthGuard } from "./auth/guards/auth.guard";
 import { DisplayContactListComponent } from "./contacts/display-contact-list/display-contact-list.component";
 import { DisplayProjectListComponent } from "./projets/display-project-list/display-project-list.component";
-
+import { CycleComponent } from "./cycle/cycle.component";
 // Définition des routes
 const appRoutes: Routes = [
     { path: '', redirectTo: '/auth', pathMatch: 'full' }, // Redirection par défaut vers '/auth'
@@ -14,6 +14,8 @@ const appRoutes: Routes = [
     { path: 'documents', component: DocumentsComponent, canActivate: [AuthGuard] },
     { path: 'contacts', component: DisplayContactListComponent ,canActivate: [AuthGuard]}, // Route pour afficher DisplayContactListComponent
     { path: 'projets', component: DisplayProjectListComponent,canActivate: [AuthGuard] }, // Route pour afficher ViewProjectsComponent
+    { path: 'cycles', component: CycleComponent ,canActivate: [AuthGuard] }, // Route pour afficher ViewProjectsComponent
+
     { path: '**', redirectTo: '/auth' } // Route fallback si aucune route ne correspond
 ];
 
