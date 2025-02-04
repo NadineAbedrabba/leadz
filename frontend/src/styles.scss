@@ -1,0 +1,22 @@
+/* Importation des styles Angular Material */
+@use '@angular/material' as mat;
+
+/* Inclusion des styles de base d'Angular Material */
+@include mat.core();
+
+html, body {
+    height: 100%;
+}
+
+body {
+
+    .mat-icon {
+        --mat-icon-color : var(--primary2-color) ;
+    }
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    --primary1-color: #96B1C4; /* Couleur primaire définie en CSS */
+    --primary2-color: #E35A54 ;
+    --secondary-color : #FFC04C ; 
+
+}

@@ -1,0 +1,65 @@
+/* emp-add-edit.component.scss */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E35A54;
+    height: 100px;
+    color: #F9F9F9;
+  }
+  
+  h2 {
+    margin: 0;
+    margin-left: 175px !important;
+    margin-top: 12px !important;
+    
+  }
+  
+  .hidden {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .form-container {
+    width: 550px; /* Adjust the height to suit your layout */
+    background-color: #F6F6F6;
+  }
+  
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    border-color: #E35A54 !important;
+  }
+  
+  .action {
+    padding: 0px 25px 20px;
+    button {
+      flex: 1;
+    }
+  }
+  .mat-raised-button{
+    margin-left: 100px !important;
+  }
+  
+  .confirm-button {
+    background-color: #E35A54;
+    border:none;
+    height: 38px;
+    width:95px;
+    color: #F9F9F9;
+    border-radius: 8px;
+    margin-left: 10px;
+    font-weight:bold;
+  
+  }
+  .confirm-button:hover {
+    background-color: #E35A54; /* Couleur en mode hover */
+  }
+  
+  
+  

@@ -1,0 +1,143 @@
+<body>
+  <div class="header-container">
+    <h2>
+      {{ data ? 
+        ( data.typeContact === 'prospect' ? 'Modifier Prospect' : 
+         data.typeContact === 'client' ? 'Modifier Client' : 'Modifier Contact') : 'Ajouter Contact'}}
+    </h2>
+  </div>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()" class="form-container">
+    <div mat-dialog-content class="content">
+      <!-- Prénom et Nom -->
+      <div class="row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Prénom</mat-label>
+          <input matInput type="text" formControlName="prenom" required />
+          <mat-error *ngIf="contactForm.get('prenom')?.hasError('required')">Le prénom est requis</mat-error>
+          <mat-error *ngIf="contactForm.get('prenom')?.hasError('minlength')">Le prénom doit contenir au moins 2 caractères</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Nom</mat-label>
+          <input matInput formControlName="nom" required />
+          <mat-error *ngIf="contactForm.get('nom')?.hasError('required')">Le nom est requis</mat-error>
+          <mat-error *ngIf="contactForm.get('nom')?.hasError('minlength')">Le nom doit contenir au moins 2 caractères</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <!-- Email et Identifiant -->
+      <div class="row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" required />
+          <mat-error *ngIf="contactForm.get('email')?.hasError('required')">L'email est requis</mat-error>
+          <mat-error *ngIf="contactForm.get('email')?.hasError('email')">L'email n'est pas valide</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Identifiant</mat-label>
+          <input matInput type="number" formControlName="identifiant" required />
+          <mat-error *ngIf="contactForm.get('identifiant')?.hasError('required')">L'identifiant est requis</mat-error>
+          <mat-error *ngIf="contactForm.get('identifiant')?.hasError('pattern')">L'identifiant doit être un nombre</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <!-- Type de contact -->
+      <div class="row">
+        <mat-radio-group aria-label="Sélectionner un type" formControlName="type" required>
+          <mat-label><b>Type</b></mat-label>
+          <mat-radio-button value="physique">Physique</mat-radio-button>
+          <mat-radio-button value="moral">Moral</mat-radio-button>
+        </mat-radio-group>
+
+      </div>
+  
+      <!-- Numéro de téléphone et Type de contact -->
+      <div class="row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Numéro de téléphone</mat-label>
+          <input matInput formControlName="numero" required />
+          <mat-error *ngIf="contactForm.get('numero')?.hasError('required')">Le numéro de téléphone est requis</mat-error>
+          <mat-error *ngIf="contactForm.get('numero')?.hasError('pattern')">Le numéro de téléphone doit contenir 10 chiffres</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Type de contact</mat-label>
+          <mat-select formControlName="typeContact" required (selectionChange)="onTypeCChange()">
+            <mat-option *ngFor="let type of Type" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="contactForm.get('typeContact')?.hasError('required')">Le type de contact est requis</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <!-- Champs supplémentaires pour "Prospect" -->
+      <div *ngIf="showProspectFields" class="row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Etat</mat-label>
+          <mat-select formControlName="etat" (selectionChange)="onTypeCChange()">
+            <mat-option *ngFor="let etat of etatProspect" [value]="etat">{{ etat }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date dernière interaction</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateDerniereInteraction">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      
+      <div *ngIf="showProspectFields" class="row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Détails de la dernière interaction</mat-label>
+          <textarea matInput formControlName="detailsDerniereInteraction"></textarea>
+        </mat-form-field>
+      </div>
+      
+  
+      <!-- Champs du projet pour le prospect -->
+<div *ngIf="showProjectFieldForProspect " class="row">
+  <mat-form-field appearance="outline" class="half-width">
+    <mat-label>Nom du projet</mat-label>
+    <input matInput formControlName="nomProjet"/>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="half-width">
+    <mat-label>Description du projet</mat-label>
+    <input matInput formControlName="description" />
+  </mat-form-field>
+</div>
+
+<!-- Champs supplémentaires pour "Client" -->
+<div *ngIf="showClientFields" class="row">
+  <mat-form-field appearance="outline">
+    <mat-label>Date dernière interaction</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dateDerniereInteraction">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="half-width">
+    <mat-label>Détails de la dernière interaction</mat-label>
+    <textarea matInput formControlName="detailsDerniereInteraction"></textarea>
+  </mat-form-field>
+</div>
+
+  
+      <!-- Adresse et Pays -->
+      <div class="row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Adresse</mat-label>
+          <input matInput type="text" formControlName="adresse" required />
+          <mat-error *ngIf="contactForm.get('adresse')?.hasError('required')">L'adresse est requise</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Pays</mat-label>
+          <input matInput formControlName="pays" required />
+          <mat-error *ngIf="contactForm.get('pays')?.hasError('required')">Le pays est requis</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <!-- Footer du Formulaire -->
+    <div mat-dialog-actions>
+      <button mat-raised-button type="button" [mat-dialog-close]="false" style="margin-left:180px">Cancel</button>
+      <button color="primary" type="submit" class="confirm-button">Enregistrer</button>
+    </div>
+  </form>
+</body>

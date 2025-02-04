@@ -1,0 +1,88 @@
+<div class="main-body">
+    <div class="head">
+    <h1>Gestion Projets</h1></div>
+    <div class="actions">
+     
+      <div class="filter-options">
+        <mat-form-field class="search-filter" appearance="outline">
+          <mat-label>Rechercher</mat-label>
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+
+        <button mat-button [matMenuTriggerFor]="dateMenu" class="small-width" style="color: #E35A54">Date de décrochement</button>
+        <mat-menu #dateMenu="matMenu">
+          <button mat-menu-item (click)="applyDateFilter('all')">Tout</button>
+          <button mat-menu-item (click)="applyDateFilter('today')">Ce jour</button>
+          <button mat-menu-item (click)="applyDateFilter('week')">Cette semaine</button>
+          <button mat-menu-item (click)="applyDateFilter('month')">Ce mois</button>
+        </mat-menu>
+      </div>
+  
+    </div>
+  
+    <!-- Conteneur pour le tableau avec défilement horizontal -->
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        </ng-container>
+  
+        <!-- First Name Column -->
+        <ng-container matColumnDef="nomProjet">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom projet </th>
+          <td mat-cell *matCellDef="let row"> {{row.nomProjet}} </td>
+        </ng-container>
+  
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+  
+        <!-- Email Column -->
+        <ng-container matColumnDef="statutProjet">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut</th>
+          <td mat-cell *matCellDef="let row"> {{row.statutProjet}} </td>
+        </ng-container>
+  
+        <!-- Identifiant Column -->
+        <ng-container matColumnDef="dateCreation">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de décrochement</th>
+          <td mat-cell *matCellDef="let row"> {{row.dateCreation | date:'dd/MM/yyyy'}} </td>
+        </ng-container>
+
+        <!-- Colonne Nom du client -->
+      <ng-container matColumnDef="nomClient">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom contact</th>
+        <td mat-cell *matCellDef="let row">{{ row.nomClient }}</td>
+      </ng-container>
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-action"> Action </th>
+          <td mat-cell *matCellDef="let row" class="mat-column-action">
+            <button mat-icon-button (click)="openProjectDialog(row)">
+              <mat-icon style="color : #858585" >visibility</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="openEditForm(row)">
+              <mat-icon style="color : #7598B1">edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <!-- Table Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+        <!-- No Data Row -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+  
+      <!-- Paginator -->
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" class="paginator"></mat-paginator>
+    </div>
+  </div>

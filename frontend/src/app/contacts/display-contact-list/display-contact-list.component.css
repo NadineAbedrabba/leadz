@@ -1,0 +1,170 @@
+/* Corps principal */
+.main-body {
+  margin: 50px auto 0 180px; /* Espacement en haut et à gauche */
+  max-width: 1500px;
+  box-sizing: border-box;
+  margin-left: 170px;
+  margin-right: 40px;
+}
+
+.head {
+  height: 130px;
+  background-color: #E35A54;
+  margin-top: -50px; /* Ajustez cette valeur selon vos besoins */
+}
+
+h1 {
+  color: white !important;
+  margin-left: 50px;
+  margin-top: 30px !important; /* Ajoutez la marge supérieure ici */
+  padding-top: 42px;
+}
+
+/* Actions - Bouton Ajouter et options de filtre */
+.actions {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* Options de filtre */
+.filter-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+.mdc-data-table__cell {
+  color: #858585;
+  font-weight: 500;
+}
+
+.mat-mdc-paginator-container {
+  color: red;
+}
+
+.mat-mdc-table .mat-mdc-header-cell {
+  color: #858585;
+  font-weight: 800;
+}
+
+/* Réduire la largeur des options de filtre */
+.small-width {
+  width: 180px;
+  font-size: 15px;
+  font-weight: 900;
+  font-size: medium;
+}
+
+/* Filtre de recherche */
+.search-filter {
+  max-width: 250px;
+}
+
+/* Supprimer le fond du mat-form-field */
+.search-filter .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Garder uniquement la bordure inférieure */
+.search-filter .mat-form-field-appearance-outline .mat-form-field-underline {
+  border-bottom: 2px solid #000 !important;
+}
+
+/* Personnalisation de l'input */
+.search-filter input {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Style du bouton principal */
+.mat-mdc-raised-button {
+  margin-left: 570px !important;
+}
+
+/* Apparence du champ de recherche */
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid currentColor;
+}
+
+/* Ligne inférieure du champ de recherche */
+.mat-form-field-appearance-fill .mat-form-field-underline {
+  display: none;
+}
+
+/* Cache le texte d'aide et les erreurs */
+.mat-form-field-appearance-fill .mat-form-field-subscript-wrapper {
+  display: none;
+}
+
+/* Conteneur du tableau avec taille fixe et position sticky */
+.table-container {
+  max-width: 100%;
+  height: 400px; /* Hauteur fixe du tableau */
+  overflow: auto; /* Permet le défilement si le contenu dépasse */
+  margin-top: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+  padding: 8px;
+  width: 100%;
+  height: 600px;
+}
+
+/* Table avec largeur minimale et position sticky pour l'en-tête */
+table {
+  min-width: 1200px !important;
+  border-collapse: collapse;
+  box-shadow: none;
+  width: 100%;
+  width: 1333px;
+}
+
+/* Fixer l'en-tête du tableau */
+thead {
+  position: sticky;
+  top: 0; /* Fixer l'en-tête en haut du conteneur */
+  background-color: #f9f9f9; /* Couleur de fond pour l'en-tête */
+  z-index: 1; 
+}
+
+.mat-mdc-raised-button.mat-primary {
+  background-color: #E35A54 !important;
+  margin-left: 535px !important;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    width: 100%;
+    padding: 4px;
+    height: 300px; /* Réduire la hauteur du tableau sur mobile */
+  }
+  table {
+    min-width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.paginator {
+  margin-right: 110px;
+  margin-top: 20px;
+}
+
+.mat-column-action {
+  min-width: 100px; /* Ajustez la largeur minimale selon vos besoins */
+  max-width: 180px; /* Facultatif, limite l'élargissement */
+  text-align: center; /* Centre le contenu horizontalement */
+  white-space: nowrap; /* Empêche les sauts de ligne */
+}

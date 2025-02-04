@@ -1,0 +1,66 @@
+/* Style général du dialogue */
+.custom-dialog {
+  width: 350px; /* Largeur du dialogue */
+  max-width: 90vw; /* Limite la largeur à 90% de la largeur de la vue */
+  height: 250px; /* Hauteur automatique */
+  padding: 0; /* Supprimer le padding par défaut */
+}
+
+/* Header avec fond orange et titre centré */
+.header-container {
+  background-color: #E35A54; /* Couleur orange */
+  padding: 30px 20px; /* Espacement intérieur */
+  text-align: center; /* Centrer le texte */
+}
+
+.header-container h2 {
+  color: white; /* Texte en blanc */
+  margin: 0; /* Supprimer les marges par défaut */
+  font-size: 28px; /* Taille du titre */
+}
+
+/* Contenu du dialogue */
+.content {
+  padding: 30px; /* Espacement intérieur */
+  display: flex;
+  justify-content: center; /* Centrer le contenu horizontalement */
+  margin-left: 50px;
+}
+
+/* Conteneur pour les détails du projet */
+.details-container {
+  width: 100%; /* Utiliser toute la largeur disponible */
+  max-width: 500px; /* Limiter la largeur pour une meilleure lisibilité */
+}
+
+.details-container p {
+  margin: 0; /* Supprimer les marges par défaut */
+  line-height: 2; /* Espacement entre les lignes */
+  font-size: 16px; /* Taille du texte */
+  text-align: left; /* Aligner le texte à gauche */
+  padding-left: 20px; /* Début des détails au même niveau */
+}
+
+/* Bouton Fermer */
+.close-button {
+  background-color: #E35A54; /* Couleur orange */
+  color: #F9F9F9; /* Texte en blanc */
+  padding: 15px 30px; /* Espacement intérieur */
+  border: none; /* Supprimer la bordure */
+  border-radius: 4px; /* Coins arrondis */
+  font-size: 16px; /* Taille du texte */
+  cursor: pointer; /* Curseur en forme de main */
+  margin-top: 30px; /* Espacement en haut */
+  width: 80px; /* Largeur du bouton */
+}
+
+.close-button:hover {
+  background-color: #d14a44; /* Couleur orange plus foncée au survol */
+}
+
+/* Centrer les actions du dialogue */
+mat-dialog-actions {
+  display: flex;
+  justify-content: center; /* Centrer le bouton */
+  padding: 30px; /* Espacement intérieur */
+}

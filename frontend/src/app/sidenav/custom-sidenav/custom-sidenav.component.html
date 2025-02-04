@@ -1,0 +1,46 @@
+<div class="sidenav-header">
+    <img class="logo"   [width]="logoSize()" height="'auto'"  [src]="imgSrc"  >
+
+    <img [width]="imgSize()" [height]="imgSize()"  src="assets/hey2.png" >
+<div class="header-text" [class.hide-header-text]="sidNavCollapsed()">
+<p>nom Prénom</p>
+
+
+</div>
+
+
+</div>
+
+<mat-nav-list>
+    <a mat-list-item 
+       *ngFor="let item of menuItems(); let isLast = last"
+       [routerLink]="item.route" 
+       class="color"
+       routerLinkActive="selected-menu-item" 
+       #rla="routerLinkActive" 
+       [activated]="rla.isActive" 
+       [ngClass]="{ 'logout': isLast }"
+       (click)="isLast ? logout() : null">
+      
+      <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" 
+                matListItemIcon 
+                [ngStyle]="{ color: rla.isActive ? '#E35A54' : '#7598B1' }">
+        {{ item.icon }}
+      </mat-icon>
+  
+      <span class="text" *ngIf="!sidNavCollapsed()" 
+            [ngStyle]="{ color: rla.isActive ? '#E35A54' : '#7598B1' }">
+        {{ item.label }}
+      </span>
+
+
+
+    </a>
+    
+
+    
+    
+  </mat-nav-list>
+ 
+
+

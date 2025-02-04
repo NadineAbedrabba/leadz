@@ -1,0 +1,56 @@
+<div class="analytics-dashboard">
+   
+  
+    <!-- Main Content -->
+    <main class="content">
+      <header>
+        <h2>Analytics</h2>
+        <input type="text" placeholder="Search..." />
+        <div class="profile">
+          <img src="assets/profile.jpg" alt="User" />
+          <span>Tynisha Obey</span>
+        </div>
+      </header>
+  
+      <section class="stats-grid">
+        <div class="card">
+          <h3>Sales</h3>
+          <apx-chart [series]="salesData.series" [chart]="salesData.chart"></apx-chart>
+        </div>
+  
+        <div class="card">
+          <h3>Visitors</h3>
+          <apx-chart [series]="visitorsData.series" [chart]="visitorsData.chart"></apx-chart>
+        </div>
+  
+        <div class="card">
+          <h3>Traffic Source</h3>
+          <ul>
+            <li>Google: 48,346</li>
+            <li>Social: 30,000</li>
+            <li>Direct: 23,799</li>
+          </ul>
+        </div>
+  
+        <div class="card">
+          <h3>Buyers Profile</h3>
+          <apx-chart [series]="profileData.series" [chart]="profileData.chart"></apx-chart>
+        </div>
+  
+        <div class="card">
+          <h3>Most sales locations</h3>
+          <img src="assets/map.png" alt="Sales Map" />
+        </div>
+  
+        <div class="card">
+          <h3>New Customers</h3>
+          <ul>
+            <li>Roselle Ehrman - Brasilia</li>
+            <li>Leatrice Handler - Ireland</li>
+            <li>Darron Kullowski - Moscow</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  
