@@ -1,9 +1,10 @@
 // src/entities/prospect.entity.ts
 
-import { ChildEntity, Column, OneToMany } from 'typeorm';
+import { ChildEntity, Column, OneToOne ,OneToMany , JoinColumn } from 'typeorm';
 import { Contact } from '../../contact/contact.entity/contact.entity';
 import { Project } from '../../project/project.entity/project.entity';
 import { Document } from '../../document/document.entity/document.entity';
+import { Card } from 'src/card/entities/card.entity';
 
 
 @ChildEntity()
@@ -16,8 +17,14 @@ export class Prospect extends Contact {
 
   @Column({ nullable: true })
   detailsDerniereInteraction: string;
+  @Column({ type: 'float', default: 0 })
+  progress: number;
+
   @OneToMany(() => Document, (document) => document.prospect)
   document: Document[];  // Relation OneToMany avec l'entité Document
+  @OneToOne(() => Card, (card) => card.prospect, { cascade: true })
+  @JoinColumn()
+  card: Card;
 
 }
 

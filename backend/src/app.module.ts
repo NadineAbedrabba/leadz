@@ -12,8 +12,12 @@ import { Prospect } from './prospect/prospect.entity/prospect.entity';
 import { Client } from './client/client.entity/client.entity';
 import { Project } from './project/project.entity/project.entity';
 import { Document } from './document/document.entity/document.entity';
+import { Card } from './card/entities/card.entity';
+import { Step } from './step/entities/step.entity';
 import { CycleModule } from './cycle/cycle.module';
 import { DocumentModule } from './document/document.module';
+import { StepModule } from './step/step.module';
+import { CardModule } from './card/card.module';
 
 @Module({
   imports: [
@@ -24,7 +28,7 @@ import { DocumentModule } from './document/document.module';
       username: 'root', // votre nom d'utilisateur MySQL
       password: 'lavieenrose', // mot de passe de votre base de données
       database: 'leadz', // nom de la base de données
-      entities: [Contact, Prospect, Client, Project, Document], // entités à utiliser avec TypeORM
+      entities: [Contact, Prospect, Client, Project, Document , Card , Step ], // entités à utiliser avec TypeORM
       synchronize: true, // ATTENTION : Ne pas utiliser en production
       
     }),
@@ -34,6 +38,8 @@ import { DocumentModule } from './document/document.module';
     ProjectModule,
     DocumentModule,
     CycleModule,
+    StepModule,
+    CardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

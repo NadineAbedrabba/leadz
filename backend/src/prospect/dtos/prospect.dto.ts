@@ -1,6 +1,6 @@
 // src/dtos/prospect.dto.ts
 import { ContactDTO } from '../../contact/dtos/contact.dto';
-import { IsEnum, IsOptional, IsString, IsDateString } from 'class-validator';
+import { IsEnum, IsOptional, IsString, IsDateString , IsNumber } from 'class-validator';
 
 export class ProspectDTO extends ContactDTO {
   @IsEnum(['Non intéressé', 'Intéressé', 'En négociation'])
@@ -13,4 +13,6 @@ export class ProspectDTO extends ContactDTO {
   @IsOptional()
   @IsString()
   detailsDerniereInteraction?: string;
+  @IsNumber()
+  progress: number;
 }

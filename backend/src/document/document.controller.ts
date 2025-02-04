@@ -1,4 +1,4 @@
-import { Controller, Post, UploadedFile, UseInterceptors, Body, Param, Get } from '@nestjs/common';
+import { Controller, Post, UploadedFile, UseInterceptors, Body, Param, Get , Put } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { DocumentService } from './document.service';
 import { memoryStorage } from 'multer'; 
@@ -12,6 +12,11 @@ export class DocumentController {
   testRoute() {
     return { message: 'DocumentController is working!' };
   }
+  @Put('validate/:documentId')
+  async validateDocument(@Param('documentId') documentId: number) {
+    const updatedDocument = await this.documentService.validateDocument(documentId);
+    return { message: 'Document validé avec succès', document: updatedDocument };
+  }
 
   @Post('upload/:prospectId')
   @UseInterceptors(FileInterceptor('file', {
@@ -20,7 +25,7 @@ export class DocumentController {
   async uploadFile(
     @UploadedFile() file: Express.Multer.File,
     @Param('prospectId') prospectId: number,
-    @Body() body: { projet: string; status: string; typeDocument: string; natureDocument: 'Propal' | 'Devis' | 'Contrat' | 'Cahier de charge' }  // Ajout du paramètre natureDocument
+    @Body() body: { projet: string; status: string; typeDocument: string; natureDocument: 'Propal' | 'Devis' | 'Contrat' | 'Cahier de charge'  }  // Ajout du paramètre natureDocument
   ) {
     try {
       
@@ -40,7 +45,7 @@ export class DocumentController {
         body.projet, 
         body.status, 
         body.typeDocument,
-        body.natureDocument
+        body.natureDocument,
       );
 
       return {

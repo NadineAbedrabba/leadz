@@ -1,3 +1,4 @@
+
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -23,19 +24,20 @@ export class DocumentService {
     typeDocument: string,
     natureDocument: 'Propal' | 'Devis' | 'Contrat' | 'Cahier de charge' 
   ) {
+    // Check if the Prospect exists
     // Vérifier si le prospect existe
     const prospect = await this.prospectRepository.findOne({ where: { id: prospectId } });
     if (!prospect) {
-      throw new NotFoundException(`Prospect avec l'ID ${prospectId} introuvable`);
+      throw new NotFoundException(`Prospect with ID ${prospectId} not found`);
+     
     }
 
+    // Create a new Document entity with dynamic values
     // Lire le contenu du fichier
     let fileContent: string | null = null;
-
     if (!file) {
       throw new BadRequestException('Aucun fichier envoyé');
     }
-
     try {
       if (file.mimetype === 'text/plain') {
        
@@ -58,7 +60,6 @@ export class DocumentService {
     } catch (error) {
       throw new BadRequestException('Erreur lors de la lecture du fichier : ' + error.message);
     }
-
     // Sauvegarder le document dans la base de données
     const document = this.documentRepository.create({
       documentNom: file.originalname, 
@@ -70,8 +71,22 @@ export class DocumentService {
       contenu: fileContent,
     });
 
+  
     await this.documentRepository.save(document);
-
     return { message: 'Document enregistré avec succès', document };
+  }
+  async validateDocument(documentId: number): Promise<Document> {
+   
+    const document = await this.documentRepository.findOne({ where: { documentId } });
+    if (!document) {
+      throw new NotFoundException(`Document avec l'ID ${documentId} non trouvé`);
+    }
+
+    document.status = 'Valide';
+    document.imported = true; 
+    
+   
+    const updatedDocument = await this.documentRepository.save(document);
+    return updatedDocument;
   }
 }

@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { OverlayModule } from '@angular/cdk/overlay';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DocModule } from './doc/doc.module';
-import { ContactModule } from './contacts/contacts.module';
-import { ProjetsModule } from './projets/projets.module';
-import { RouterModule, Routes } from '@angular/router';
-import { ViewProjectsComponent } from './contacts/view-projects/view-projects.component';
-
-const routes: Routes = [
-  { path: 'view-projects/:id', component: ViewProjectsComponent },];
+import { CycleComponent } from './cycle/cycle.component';
+import { CardComponent } from './card/card.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule,  AppRoutingModule, DocModule, ContactModule, OverlayModule,ProjetsModule, RouterModule.forRoot(routes),],
+  declarations: [
+    AppComponent,
+    CycleComponent,
+    CardComponent,
+
+  ],
+  imports: [BrowserModule,  AppRoutingModule, DocModule , HttpClientModule ],
   providers: [],
   bootstrap: [AppComponent],
 })
