@@ -23,17 +23,16 @@ export class Document {
   contenu: string;
 
   @Column({ type: 'enum', enum: ['Propal', 'Devis', 'Contrat', 'Cahier de charge'], default: 'Propal' }) 
-  natureDocument: string; // Ajout de la nature du document
+  natureDocument: string; 
   @Column({ default: false })
   imported: boolean;
-  @Column('simple-array', { default: [] })
-  documentIds: number[];
+  
 
   @ManyToOne(() => Prospect, (prospect) => prospect.document, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'prospectId' })  
   prospect: Prospect;  
-  @ManyToOne(() => Step, (step) => step.documents, { onDelete: 'CASCADE' })
-  step: Step;
+  //@ManyToOne(() => Step, (step) => step.documents, { onDelete: 'CASCADE' })
+  //step: Step;
   @ManyToOne(() => Card, (card) => card.steps)
   card: Card;
 }

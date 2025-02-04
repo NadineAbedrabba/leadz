@@ -18,6 +18,6 @@ export class Step {
   @ManyToOne(() => Card, (card) => card.steps, { onDelete: 'CASCADE' })
   card: Card;
 
-  @OneToMany(() => Document, (document) => document.step, { cascade: true })
-  documents: Document[];
+  //@OneToMany(() => Document, (document) => document.step, { cascade: true })
+  //documents: Document[];
 }

@@ -30,6 +30,8 @@ import { CardModule } from './card/card.module';
       database: 'leadz', // nom de la base de données
       entities: [Contact, Prospect, Client, Project, Document , Card , Step ], // entités à utiliser avec TypeORM
       synchronize: true, // ATTENTION : Ne pas utiliser en production
+      logging: true,
+      logger: 'advanced-console',
       
     }),
     ContactModule,

@@ -9,9 +9,7 @@ import { Card } from '../card/entities/card.entity';
 
 @Injectable()
 export class StepService {
-  constructor(
-    @InjectRepository(Step) private stepRepository: Repository<Step>,
-    @InjectRepository(Card) private cardRepository: Repository<Card>, // On peut récupérer une carte si nécessaire
+  constructor( 
   ) {}
   
   create(createStepDto: CreateStepDto) {
